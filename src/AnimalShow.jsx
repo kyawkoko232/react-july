@@ -1,5 +1,5 @@
 function AnimalShow(){
-    return <div>Show Animal list here</div>
+    return <div>Cow !</div>
 }
 
 export default AnimalShow;
