@@ -10,7 +10,6 @@ function UserList({ users }) {
     <div>
 
       <h1 className="text-center text-xl font-sans">User List</h1>
-
       <div className="flex flex-wrap justify-center items-center gap-5">
         {renderedUsers}
       </div>
