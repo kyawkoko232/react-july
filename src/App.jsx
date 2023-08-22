@@ -1,15 +1,30 @@
+import { useState } from "react";
+import SearchBar from "./components/SearchBar";
+import SearchUsers from "./Api";
+import UserList from "./components/UserList";
 
 
-function App(){
-  return(
-    <div>
+
+
+function App() {
+  const [users, setUsers] = useState([]);
+
+  const handleSubmit = async (term) => {
+    const result = await SearchUsers(term);
     
-    <h1 className="text-3xl  font-bold underline">
-      Hello world!
-    </h1>
+    console.log(result); // This should display array(10)
+    setUsers(result);
+};
+
+  
+  return (
+    <div>
+      <SearchBar onSubmit={handleSubmit} />
+    
+    <UserList  users={users} />
 
     </div>
-  )
+  );
 }
 
 export default App;
