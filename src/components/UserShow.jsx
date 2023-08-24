@@ -7,7 +7,7 @@ function UserShow({ user }) {
         <li>Name - {user.name}</li>
         <li>Email - {user.email}</li>
         <li>Email - {user.email}</li>
-        <li>Verify At - {user.email_verified_at.toString()}</li>
+        <li>Verify At - {user.email_verified_at}</li>
         <li>Role - {user.role}</li>
         <li>Joined - {user.created_at}</li>
       </ul>
