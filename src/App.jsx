@@ -1,13 +1,20 @@
+import { useState } from "react";
+import BookCreate from './components/BookCreate';
+
+
 
 
 function App(){
+
+  const [books, setBooks] = useState([]);
+
+  const createBook = (title) => {
+    console.log('Need to add Book with titile', title);
+  }
   return(
     <div>
     
-    <h1 className="text-3xl  font-bold underline">
-      Hello world!
-    </h1>
-
+    <BookCreate  onCreate={createBook} />
     </div>
   )
 }
