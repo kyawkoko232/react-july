@@ -30,7 +30,7 @@ function BookShow( {book, onEdit, onDelete }){
 
     return (
     <div className="py-1 ">
-      <div className=" border bg-slate-900 border-base-200 shadow-xl relative  max-w-md flex-1 transition-all duration-300  py-4 px-3 m-2 rounded-xl">
+      <div className=" border dark:bg-slate-900 border-base-200 shadow-xl relative  max-w-md flex-1 transition-all duration-300  py-4 px-3 m-2 rounded-xl">
       <div className="actions">
         <button className="edit rounded-lg px-2  " onClick={handleEditClick}> 
           { name }
