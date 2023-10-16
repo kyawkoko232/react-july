@@ -1,36 +1,47 @@
 import { useState } from "react";
-import BookEdit from './BookEdit';
+import BookEdit from './BookEdit.jsx';
 
-function BookShow( {book, onDelete}){
+
+function BookShow( {book, onEdit, onDelete }){
   const [showEdit, setShowEdit] = useState(false);
-    const handleDeleteClick = ()=> {
-        onDelete(content);
+    
+  const handleDeleteClick = ()=> {
+        onDelete(book.id);
     };
 
     const handleEditClick = ()=> {
       setShowEdit(!showEdit);
     }
 
-    let content = <h3>{book.title}</h3>;
+    const handleSubmit = (id, newTitle) => {
+      setShowEdit(false);
+      onEdit(id, newTitle);
+    };
+
+    let content = <span className=" text-blue-400"> Title - {book.title}</span>;
     if (showEdit) {
-      content = <BookEdit />;
+      content = <BookEdit onSubmit={handleSubmit} book={book} />;
+    }
+
+    let name = <h1 className="text-sm">Edit </h1>;
+    if (showEdit){
+      name =  <h1 className="text-sm">Book</h1>;
     }
 
     return (
-    <div className="">
-     
-      <div className="bg-slate-700 relative  max-w-sm flex-1 hover:bg-gray-300 transition-all duration-300 hover:text-black-500 p-5 m-2 rounded-xl text-slate-300">
+    <div className="py-1 ">
+      <div className="border shadow-xl relative  max-w-md flex-1 transition-all duration-300  py-4 px-3 m-2 rounded-xl text-slate-300">
       <div className="actions">
-        <button className="edit rounded-lg px-2 text-white hover:text-slate-600 hover:bg-green-300  bg-black-500 " onClick={handleEditClick}> 
-          Edit
+        <button className="edit rounded-lg px-2 text-slate-800 bg-green-400 md:hover:bg-green-200 " onClick={handleEditClick}> 
+          { name }
         </button>
+
         <button 
-        className="w-8 h-8 hover:bg-blue-600 leading-none absolute bg-red-600 right-1 top-1 rounded-full" 
+        className="w-8 h-8 hover:bg-blue-600 leading-none absolute bg-red-600 right-3 top-3 rounded-full" 
        onClick={handleDeleteClick}
         > x </button>
       </div>
-      <div className="text-sm">id - {book.id}</div>
-      <div className="text-xl">book titile - {content}</div>
+      <div className="text-lg py-2"> {content} </div>
       </div>
     </div>
     )
