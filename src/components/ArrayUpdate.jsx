@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useContext } from "react";
+
 
 const [colors, setColors] = useState([
     'red', 'green', 'blue'
