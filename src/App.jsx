@@ -1,40 +1,32 @@
-import Button from './Button';
-import { GoBell } from 'react-icons/go'
+import Accordion from "./components/Accordion";
+
 
 function App() {
 
-  const handleClick = ()=> {
-    console.log('Click');
-  }
+  const items = [
+    {
+      id : 1,
+      label : 'Can I use React on a project',
+      content : 'You can use React on any project you want.'
+    },
+    {
+      id : 2,
+      label: 'Can I use JavaScript on a project',
+      content : 'You can use React on any project you want.'
+
+    },
+    {
+      id : 3,
+      label : ' Can I use tailwindCSS on a project',
+      content : 'You can use React on any project you want.'
+    }
+  ]
 
   return (
-    <div className='flex flex-wrap justify-center items-center gap-5 p-5'>
-      <div className=''>
-        <Button onClick={handleClick}  primary rounded>
-         <GoBell /> Click me!!
-        </Button>
-      </div>
-      <div>
-        <Button onClick={handleClick} danger outline>
-        
-          Buy Now!
-        </Button>
-      </div>
-      <div>
-        <Button onClick={handleClick} warning>See Deal!</Button>
-      </div>
-      <div>
-        <Button onClick={handleClick} secondary outline>
-          Hide Ads!
-        </Button>
-      </div>
-      <div>
-        <Button onClick={handleClick} secondary rounded>
-          Something!
-        </Button>
-      </div>
+    <div data-theme="light" className="min-h-screen">
+      <Accordion items={items} />
     </div>
-  );
+  )
 }
 
 export default App;
