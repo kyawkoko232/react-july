@@ -1,32 +1,17 @@
-import Accordion from "./components/Accordion";
+import Dropdown from "./components/Dropdown";
 
 
-function App() {
+function App(){
+  const options = [
+    {label : "Red", value : 'red'},
+    {label : "green", value : 'green'},
+    {label : "blue", value : 'blue'},
 
-  const items = [
-    {
-      id : 1,
-      label : 'Can I use React on a project',
-      content : 'You can use React on any project you want.'
-    },
-    {
-      id : 2,
-      label: 'Can I use JavaScript on a project',
-      content : 'You can use React on any project you want.'
-
-    },
-    {
-      id : 3,
-      label : ' Can I use tailwindCSS on a project',
-      content : 'You can use React on any project you want.'
-    }
   ]
+ return (
 
-  return (
-    <div data-theme="light" className="min-h-screen">
-      <Accordion items={items} />
-    </div>
-  )
+  <Dropdown options={options} />
+ )
 }
 
 export default App;
